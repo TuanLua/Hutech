@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script type="text/javascript" src="../../../../../xampp/htdocs/Moi_truong_phat_trien_phan_mem/Lab01/jquery-3.1.1.min.js"></script>
+<script language="javascript">
+	function ChangColor(){
+	 	document.getElementById("changeColorDiv").style.backgroundColor = "red";
+	}
+	function addClass(){
+		document.getElementById("text").className = "myclass";
+		document.getElementById("text1").className = "myclass";
+	}			
+	function validation(){ 
+		if (document.myform.number1.value == "") {
+		{
+     		document.getElementById('errors').innerHTML="*A number is required*";
+		}
+		if(document.myform.number2.value %10 != 0 || document.myform.number2.value == "")
+		{
+			document.getElementById('errors1').innerHTML="*The number should divisivle by 10*";
+		}
+		else
+		{
+			document.getElementById('errors1').innerHTML="";
+		}
+		var count = 0;
+		if(document.myform.number3.value >1)
+		{			
+			count ++;			 
+			 while (document.myform.number3.value / 10 >= 1) 
+			 {
+				document.myform.number3.value /= 10;
+				count++;	
+  			 }
+				//document.getElementById('errors2').innerHTML= +count;
+				if(count <7)
+				{					
+					document.getElementById('errors2').innerHTML="The number should be least 7 digits";
+				}
+		}
+    return false;
+	}
+	}
+	
+</script>
+<style>
+	.myclass{
+		color:red;
+	}
+	.error_form{
+		color:red;
+		font-weight:bold;
+	}
+	table, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+<p> cau 1</p>
+	<div style="background-color:yellow" id="changeColorDiv">
+    	<p> Nguyen Minh Tuan</p>
+        <button onClick="ChangColor()">Click here!</button>       
+    </div>
+    <br>
+	<p> cau 2</p>
+	
+    <div>
+    	<h1 onClick="addClass()">Add Solution</h1>      
+        <p id="text">First paragraph</p>  
+        <p id="text1">Second Paragraph</p>
+    </div>
+	<br>
+	
+	<p> cau 3</p>
+    <div>     
+            <form name ="myform" onsubmit="return validation();"> 
+           	 Some Number: <input type ="text" name="number1" /><br />  
+             <p id="errors" style="color:red;font-weight:bold"></p>  
+             Some Number: <input type ="text" name="number2" /><br />
+             <p id="errors1"  style="color:red;font-weight:bold"></p>  
+             Some Number: <input type ="text" name="number3" /><br />  
+             <p id="errors2"  style="color:red;font-weight:bold"></p>          
+                 <input type ="submit" value="submit" />
+                  <div id ="errors" class="error_form">
+                  </div>
+            </form>
+       
+    </div>
+	<br>
+	<p> cau 4</p>
+	<p>Add rows on table</p>
+
+<table id="myTable">
+  <tr>
+    <td>Row1 cell1</td>
+    <td>Row1 cell2</td>
+  </tr>
+ 
+</table>
+<br>
+
+<button onclick="myFunction()">Nhan vao de them</button>
+
+<script>
+function myFunction() {
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = "NEW CELL1";
+    cell2.innerHTML = "NEW CELL2";
+}
+</script>
+</body>
+</html>
